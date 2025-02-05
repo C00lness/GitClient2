@@ -26,10 +26,8 @@ class MainActivity : ComponentActivity() {
             NavHost(navController, startDestination = NavRoutes.Search.route) {
                 composable(NavRoutes.Search.route) {
                     SearchResultScreen(viewModel) {
-                        if (viewModel.url != "") {
                             viewModel.getContent(viewModel.url)
                             navController.navigate(NavRoutes.RepositoryDetails.route)
-                        } else navController.popBackStack()
                     }
                 }
                 composable(NavRoutes.RepositoryDetails.route) { stackEntry ->
